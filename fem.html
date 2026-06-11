@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPA Connexion</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body>
+
+
+<section id="loginPage" class="flex justify-between items-center w-full h-screen">
+
+    <div class="w-1/2 flex justify-center items-center">
+
+        <form class="w-[430px]">
+
+            <div class="text-center">
+                <h1 class="text-[#01512C] text-2xl">
+                    Groupement féminin de Dakar
+                </h1>
+
+                <img src="logo.png" class="h-20 w-20 mx-auto mt-4">
+
+                <p class="text-[#279260] text-2xl">
+                    DALAL AK DIAM
+                </p>
+            </div>
+
+            <div class="border-b-2 border-gray-300 my-8"></div>
+
+            <div class="flex flex-col">
+                <label class="font-bold mb-1">Email</label>
+                <input id="emailConnexion" type="email" class="border p-3 rounded-md">
+            </div>
+
+            <div class="flex flex-col mt-4">
+                <label class="font-bold mb-1">Mot de passe</label>
+                <input id="passwordConnexion" type="password" class="border p-3 rounded-md">
+            </div>
+
+            <button type="button" onclick="connexion()"
+                class="w-full bg-[#01512C] text-white mt-6 p-3 rounded-md">
+                Se connecter
+            </button>
+
+            <p class="text-center mt-4">
+                Pas encore de compte ?
+            </p>
+
+            <p onclick="showPage('registerPage')"
+               class="block text-center border p-3 rounded-md mt-2 text-[#01512C] cursor-pointer">
+                S'inscrire
+            </p>
+
+        </form>
+
+    </div>
+
+    <div class="w-1/2 h-screen">
+        <img src="logo.png" class="w-full h-full object-cover">
+    </div>
+
+</section>
+
+
+<section id="registerPage" class=" flex justify-center items-center h-screen">
+
+    <div class="w-[430px]">
+<div class="flex flex-col">
+     <img src="logo.png" class="h-20 w-20 mx-auto mt-4">
+
+                <p class="text-[#279260] text-2xl justify-center items-center">
+                    DALAL AK DIAM
+                </p>
+                <div class="flex flex-col">
+            <label class="font-bold mb-1">Nom complet</label>
+            <input
+                id="nomInscription"
+                type="text"
+                placeholder="Fatou Ndiaye"
+                class="border p-3 rounded-md">
+        </div>
+                <label class="font-bold mb-1">Email</label>
+                <input id="emailInscription" type="email" placeholder="nom@gmail.com"
+                    class="border p-3 rounded-md">
+            </div>
+
+            <div class="flex flex-col mt-4">
+                <label class="font-bold mb-1">Mot de passe</label>
+                <input id="passwordInscription" type="password" placeholder="Mot de passe"
+                    class="border p-3 rounded-md">
+            </div>
+
+            <div class="flex flex-col mt-4">
+                <label class="font-bold mb-1">Confirmation</label>
+                <input id="confirmPassword" type="password" placeholder="Confirmer le mot de passe"
+                    class="border p-3 rounded-md">
+            </div>
+
+            <div class="flex items-start mt-4">
+                <input type="checkbox" class="mr-2">
+                <p class="text-sm">
+                    j'ai lu et j'accepte
+                    <span class="text-[#01512C]">les conditions d'utilisation</span>
+                </p>
+            </div>
+
+        <button onclick="inscription()"
+            class="w-full bg-[#01512C] text-white p-3 rounded-md">
+            S'inscrire
+        </button>
+
+        <p onclick="showPage('loginPage')"
+           class="text-center mt-4 text-[#01512C] cursor-pointer">
+            Déjà un compte ? Connexion
+        </p>
+
+    </div>
+     <div class="w-1/2">
+        <img src="logo.png" class="w-full h-full object-cover">
+    </div>
+
+</section>
+
+
+<section id="dashboardPage" class=" p-10 flex h-screen">
+
+    
+    <aside class="w-60 bg-white border-r">
+
+        <div class="flex justify-center py-4">
+            <img src="logo.png" class="w-24">
+        </div>
+
+        <nav class="px-2">
+
+            <button class="w-full flex items-center gap-3 bg-pink-200 p-3 rounded mb-2">
+                <span><img src="house-solid-full.svg" width="30" height="30"></span><span>Tableau de bord</span> 
+            </button>
+
+            <button class="w-full flex items-center gap-3 p-3 hover:bg-pink-100 rounded mb-2">
+                 <span><img src="ri--group-line.svg" width="30" height="30" alt=""></span><span>membres</span>
+            </button>
+
+            <button class="w-full flex items-center gap-3 p-3 hover:bg-pink-100 rounded mb-2">
+                 <span><img src="streamline-cyber--money-bag-1.svg"width="30" height="30" alt=""></span><span>cotisations</span>
+            </button>
+
+            <button class="w-full flex items-center gap-3 p-3 hover:bg-pink-100 rounded mb-2">
+                 <span><img src="material-symbols--pending-actions.svg" width="30" height="30" alt=""></span><span>Actions</span>
+            </button>
+
+            <button class="w-full flex items-center gap-3 p-3 hover:bg-pink-100 rounded mb-2">
+                <span><img src="tabler--credit-card-refund.svg" width="30" height="30" alt=""></span><span>Caisse</span>
+            </button>
+
+            <button class="w-full flex items-center gap-3 p-3 hover:bg-pink-100 rounded mb-2">
+                <span><img src="streamline-plump--file-report.svg" width="30" height="30" alt=""></span><span>Réalisations</span>
+            </button>
+
+            <button class="w-full flex items-center gap-3 p-3 hover:bg-pink-100 rounded mb-2">
+                <span><img src="material-symbols--person-outline.svg" width="30" height="30" alt=""></span><span>Profil</span>
+            </button>
+
+        </nav>
+
+    </aside>
+
+    
+    <main class="flex-1 p-6">
+
+        
+        <div class="flex justify-between items-center mb-8">
+
+            <input
+                type="text"
+                placeholder="Rechercher"
+                class="border rounded-lg px-4 py-2 w-72"
+            >
+
+            <div class="flex items-center gap-3">
+
+                <img
+                    src="WhatsApp Image 2026-03-10 at 13.07.26.jpeg"
+                    class="w-14 h-14 rounded-full object-cover"
+                >
+
+                <div>
+                    <h3 id="nomDashboard" class="font-semibold"></h3>
+
+                    <p class="text-gray-500 text-sm">
+                        ADMINISTRATRICE
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+            
+        <h1 id="bonjourDashboard"
+        class="text-3xl mb-2 font-semibold">
+    </h1>
+
+        <p class="text-gray-500 mb-8">
+            Voici un aperçu de votre groupement aujourd'hui
+        </p>
+
+        
+        <div class="grid grid-cols-4 gap-6 mb-8">
+
+            <div class="bg-pink-100 rounded-3xl p-5 border flex gap-4">
+                <span><img src="ri--group-line.svg" width="30" height="30" alt=""></span>
+                <div>
+                <span><h1>Nombres de membres</h1></span>
+                <p class="text-pink-500 text-2xl justify-center items-center">120</p>
+                </div>
+                
+
+            </div>
+
+            <div class="bg-white rounded-3xl p-5 border flex gap-4">
+                <span><img src="streamline-freehand--money-bag.svg" width="30" height="30" alt=""></span>
+                
+                <span>
+                    <h3>Total cotisation</h3>
+
+                    <p class="text-pink-500 text-2xl font-bold">
+                        450 000
+                    </p>
+                </span>    
+
+            </div>
+
+            <div class="bg-pink-200 rounded-3xl p-5 border flex gap-4">
+                <span><img src="arcticons--deltachat.svg" width="30" height="30" alt=""></span>
+
+                <span>
+                <h3>Dépenses</h3>
+
+                <p class="text-pink-500 text-2xl font-bold">
+                    50 000
+                </p>
+                </span>
+            </div>
+
+            <div class="bg-white rounded-3xl p-5 border flex gap-4">
+                <span><img src="ph--house-thin.svg" width="30" height="30" alt=""></span>
+
+                <span>
+                <h3>Soldes disponibles</h3>
+
+                <p class="text-cyan-500 text-2xl font-bold">
+                    400 000
+                </p>
+                </span>
+
+            </div>
+
+        </div>
+
+        
+        <div class="grid grid-cols-3 gap-4 mb-6">
+
+            
+            <div class="bg-pink-100 rounded-2xl flex items-center justify-center  border gap-4">
+                <span><img src="material-symbols--person-add-outline-rounded.svg" width="40" height="40" alt=""></span>
+
+                <p class="text-pink-400 text-xl">
+                    Ajouter un membre
+                </p>
+
+            </div>
+
+            
+            <div class="bg-white rounded-2xl p-3 border">
+
+                <h3 class="text-center mb-2">
+                    Dernières cotisations
+                </h3>
+
+                <table class="w-full text-sm border-1">
+
+                    <tr class="border-b-1">
+                        <td>Fatou Ndiaye</td>
+                        <td>5000</td>
+                        <td>01/06/26</td>
+                        <td class="text-green-500">
+                            payé
+                        </td>
+                    </tr>
+
+                    <tr class="border-b-1">
+                        <td>Mariama</td>
+                        <td>5000</td>
+                        <td>01/06/26</td>
+                        <td class="text-red-500">
+                            non payé
+                        </td>
+                    </tr>
+
+                    <tr class="border-b-1">
+                        <td>aita</td>
+                        <td>5000</td>
+                        <td>01/06/26</td>
+                        <td class="text-green-500">
+                             payé
+                        </td>
+                    </tr>
+                     <tr class="border-b-1">
+                        <td>bineta</td>
+                        <td>5000</td>
+                        <td>01/06/26</td>
+                        <td class="text-red-500">
+                            non payé
+                        </td>
+                    </tr>
+                     <tr class="border-b-1">
+                        <td>rama</td>
+                        <td>5000</td>
+                        <td>01/06/26</td>
+                        <td class="text-red-500">
+                            non payé
+                        </td>
+                    </tr>
+                     <tr class="border-b-1">
+                        <td>amina</td>
+                        <td>5000</td>
+                        <td>01/06/26</td>
+                        <td class="text-green-500">
+                             payé
+                        </td>
+                    </tr>
+                     <tr class="border-b-1">
+                        <td>mame</td>
+                        <td>5000</td>
+                        <td>01/06/26</td>
+                        <td class="text-green-500">
+                             payé
+                        </td>
+                    </tr>
+
+                </table>
+                <div class="flex justify-center mt-2 text-pink-500">
+                    
+                        Voir toutes les cotisations ->
+                        </div>
+                    
+
+            </div>
+
+            
+            <div class="bg-white rounded-2xl p-4 border flex">
+
+                <div class="w-50 h-50 rounded-full mx-auto bg-gradient-to-r from-green-300 via-pink-300 to-purple-500 flex items-center justify-center">
+
+                    <div class="bg-white w-24 h-24 rounded-full flex items-center justify-center font-bold">
+                        400 000
+                    </div>
+                    
+
+                </div>
+                <div class="gap-4 p-10">
+                      <div class="flex gap-4">
+                        <div class="w-4 h-4 bg-green-500 rounded-full "></div>
+                        <div><h1 class="text-gray-600">Entrés</h1>
+                            <p class="text-xs">500.000 FCFA</p></div>
+                      </div>
+                       <div class="flex gap-4">
+                        <div class="w-4 h-4 bg-pink-500 rounded-full "></div>
+                        <div><h1 class="text-gray-600">Dépenses</h1>
+                            <p class="text-xs">50 000 FCFA</p></div>
+                      </div>
+                       <div class="flex gap-4">
+                        <div class="w-4 h-4 bg-purple-500 rounded-full "></div>
+                        <div><h1 class="text-gray-600">Soldes</h1>
+                            <p class="text-xs">450 000 FCFA</p></div>
+                      </div>
+                    </div>
+
+            </div>
+
+        </div>
+
+        
+        <div class="grid grid-cols-2 gap-4">
+
+            
+            <div class="bg-white rounded-2xl p-4 border">
+
+                <h3 class="font-semibold mb-4">
+                    Activités récentes
+                </h3>
+
+                <ul class="space-y-3">
+
+                    <li>Thiakry - 120 ventes</li>
+                    <li>Jus de bissap - 98 ventes</li>
+                    <li>Miel naturel - 70 ventes</li>
+
+                </ul>
+
+            </div>
+
+    
+            <div class="bg-white rounded-2xl p-4 border">
+
+                <h3 class="text-pink-500 text-xl mb-4">
+                    Membres récents
+                </h3>
+
+                <div class="space-y-4">
+
+                    <div class="flex justify-between">
+                        <span>Alima Diop</span>
+                        <span>76 098 34 67</span>
+                    </div>
+
+                    <div class="flex justify-between">
+                        <span>Yacine Faye</span>
+                        <span>75 012 34 45</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <button onclick="logout()"
+        class="mt-6 bg-red-600 text-white p-3 rounded">
+        Déconnexion
+    </button>
+    </footer>
+
+    
+
+</section>
+
+<script src="fem.js"></script>
+
+
+</body>
+</html>

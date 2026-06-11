@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <title>SPA App</title>
+</head>
+
+<body class="bg-gray-100">
+
+<!-- ================= LOGIN ================= -->
+<section id="loginPage" class="flex justify-center items-center h-screen">
+
+  
+    <div class="w-1/2 flex justify-center items-center">
+
+        <form class="w-[430px]">
+
+            <div class="text-center">
+                <h1 class="text-[#01512C] text-2xl">
+                    Groupement féminin de Dakar
+                </h1>
+
+                <img src="logo.png" class="h-20 w-20 mx-auto mt-4">
+
+                <p class="text-[#279260] text-2xl">
+                    DALAL AK DIAM
+                </p>
+            </div>
+
+            <div class="border-b-2 border-gray-300 my-8"></div>
+
+            <div class="flex flex-col">
+                <label class="font-bold mb-1">Email</label>
+                <input id="emailConnexion" type="email" placeholder="nom@gmail.com"
+                    class="border p-3 rounded-md">
+            </div>
+
+            <div class="flex flex-col mt-4">
+                <label class="font-bold mb-1">Mot de passe</label>
+                <input id="passwordConnexion" type="password" placeholder="Mot de passe"
+                    class="border p-3 rounded-md">
+            </div>
+
+     <button
+                type="button"
+                onclick="login()"
+                class="w-full bg-[#01512C] text-white mt-6 p-3 rounded-md">
+                Se connecter
+            </button>
+
+    <p onclick="showPage('registerPage')" class="text-center mt-4 text-green-700 cursor-pointer">
+      Pas de compte ? S'inscrire
+    </p>
+
+  </div>
+   <div class="w-1/2 h-screen">
+        <img src="logo.png" class="w-full h-full object-cover">
+    </div>
+
+</section>
+
+<!-- ================= REGISTER ================= -->
+<section id="registerPage" class="hidden  justify-center items-center h-screen">
+  <div class="flex flex-col">
+                <label class="font-bold mb-1">Email</label>
+                <input id="emailInscription" type="email" placeholder="nom@gmail.com"
+                    class="border p-3 rounded-md">
+            </div>
+
+            <div class="flex flex-col mt-4">
+                <label class="font-bold mb-1">Mot de passe</label>
+                <input id="passwordInscription" type="password" placeholder="Mot de passe"
+                    class="border p-3 rounded-md">
+            </div>
+
+            <div class="flex flex-col mt-4">
+                <label class="font-bold mb-1">Confirmation</label>
+                <input id="confirmPassword" type="password" placeholder="Confirmer le mot de passe"
+                    class="border p-3 rounded-md">
+            </div>
+
+            <div class="flex items-start mt-4">
+                <input type="checkbox" class="mr-2">
+                <p class="text-sm">
+                    j'ai lu et j'accepte
+                    <span class="text-[#01512C]">les conditions d'utilisation</span>
+                </p>
+            </div>
+
+    <button onclick="register()" class="bg-green-700 text-white w-full p-3 rounded">
+      S'inscrire
+    </button>
+
+    <p onclick="showPage('loginPage')" class="text-center mt-4 text-green-700 cursor-pointer">
+      Déjà un compte ? Connexion
+    </p>
+
+  </div>
+  <div class="w-1/2 h-screen">
+        <img src="logo.png" class="w-full h-full object-cover">
+    </div>
+
+</section>
+
+<!-- ================= DASHBOARD ================= -->
+<section id="dashboardPage" class="hidden">
+
+  <div class="flex h-screen">
+
+    <!-- SIDEBAR -->
+    <aside class="w-60 bg-white border-r p-4">
+      <h2 class="font-bold mb-6">Dashboard</h2>
+
+      <button onclick="logout()" class="bg-red-500 text-white p-2 w-full rounded">
+        Déconnexion
+      </button>
+    </aside>
+
+    <!-- CONTENT -->
+    <main class="flex-1 p-6">
+
+      <h1 class="text-3xl font-bold mb-4">
+        Bienvenue 👋
+      </h1>
+
+      <p class="text-gray-600">
+        Ceci est ton dashboard SPA
+      </p>
+
+    </main>
+
+  </div>
+
+</section>
+
+<!-- ================= JS ================= -->
+<script>
+
+function showPage(page){
+
+  document.getElementById("loginPage").classList.add("hidden");
+  document.getElementById("registerPage").classList.add("hidden");
+  document.getElementById("dashboardPage").classList.add("hidden");
+
+  document.getElementById(page).classList.remove("hidden");
+}
+
+
+// REGISTER
+function register(){
+
+  const email = document.getElementById("regEmail").value;
+  const password = document.getElementById("regPassword").value;
+  const confirm = document.getElementById("regConfirm").value;
+
+  if(password !== confirm){
+    alert("Les mots de passe ne correspondent pas");
+    return;
+  }
+
+  localStorage.setItem("user", JSON.stringify({ email, password }));
+
+  alert("Compte créé");
+
+  showPage("loginPage");
+}
+
+
+// LOGIN
+function login(){
+
+  const email = document.getElementById("loginEmail").value;
+  const password = document.getElementById("loginPassword").value;
+
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  if(user && user.email === email && user.password === password){
+    showPage("dashboardPage");
+  } else {
+    alert("Identifiants incorrects");
+  }
+}
+
+
+// LOGOUT
+function logout(){
+  showPage("loginPage");
+}
+
+
+// INIT
+showPage("loginPage");
+
+</script>
+
+</body>
+</html>
